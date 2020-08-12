@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "tsl.leaderboard",
+  "description": "The Strenuous Life: Leaderboard for Class 052",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "ts-node ./src/index"
+  },
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "tablesort": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/html-minifier": "^4.0.0",
+    "@types/lodash": "^4.14.157",
+    "@types/node": "^14.0.27",
+    "@types/node-fetch": "^2.5.7",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "prettier --write"
+    ]
+  }
+}
