@@ -49,17 +49,29 @@ export const indexTemplate = `<html>
     <h1>Leaderboard</h1>
     <table id="table-id">
       <thead class="heading">
-        <th class="name">Name&nbsp;</td>
-        <th class="number">Checkins&nbsp;</td>
+        <th class="name">Last Name&nbsp;</td>
+        <th class="name">First Name&nbsp;</td>
+        <th class="name">Username&nbsp;</td>
+        <th class="number">Days Enrolled&nbsp;</td>
         <th class="number">Badges&nbsp;</td>
-        <th class="number">Challenges&nbsp;</td>
+        <th class="number">Agons&nbsp;</td>
+        <th class="number">Deed Chk-ins&nbsp;</td>
+        <th class="number">Deed %&nbsp;</td>
+        <th class="number">Fitness Chk-ins&nbsp;</td>
+        <th class="number">Fitness %&nbsp;</td>
       </thead>
       <% for (let i = 0; i < data.length; i++) { %>
         <tr>
-          <td class="name"><%= data[i].name %></td>
-          <td class="number"><%= data[i].checkins %></td>
+          <td class="name"><%= data[i].lastName %></td>
+          <td class="name"><%= data[i].firstName %></td>
+          <td class="name"><%= data[i].username %></td>
+          <td class="number"><%= data[i].daysEnrolled %></td>
           <td class="number"><%= data[i].badges %></td>
-          <td class="number"><%= data[i].challenges %></td>
+          <td class="number"><%= data[i].agons%></td>
+          <td class="number"><%= data[i].goodDeedCheckins %></td>
+          <td class="number"><%= data[i].goodDeedPercentage %></td>
+          <td class="number"><%= data[i].fitnessCheckins %></td>
+          <td class="number"><%= data[i].fitnessPercentage %></td>
         </tr>
       <% } %>
     </table>
