@@ -31,7 +31,8 @@ export const getAllStats = async (cookie: string, leaderboard: any) => {
   // const stats = await Promise.all(promises);
 
   const stats = [];
-  for (let i = 0; i < members.length; i++) {
+  // for (let i = 0; i < members.length; i++) {
+  for (let i = 0; i < 3; i++) {
     console.log(`${i + 1} of ${members.length}`);
     const { firstName, lastName, memberProfileUrl } = members[i];
     const { badges, agons } = find(leaderboard, ({ name }) => name === `${lastName}, ${firstName}`) ?? { badges: 0, agons: 0 };
