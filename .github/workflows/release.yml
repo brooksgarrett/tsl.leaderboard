@@ -32,7 +32,7 @@ jobs:
 
       - name: Remove index.html
         run: |
-          rm index.html
+          rm -f index.html
           git config --global user.name 'andrewcrobertson'
           git config --global user.email 'andrewcrobertson@users.noreply.github.com'
           git commit -am "chore: remove index.html"
