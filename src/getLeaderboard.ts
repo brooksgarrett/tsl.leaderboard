@@ -1,7 +1,6 @@
 import map from 'lodash/map';
 import orderBy from 'lodash/orderBy';
 import fetch from 'node-fetch';
-import { sanitiseLeaderboardItem } from './sanitiseLeaderboardItem';
 
 export const getLeaderboard = async (cookie: string) => {
   const url = 'https://strenuouslife.co/wp-admin/admin-ajax.php';
@@ -12,6 +11,6 @@ export const getLeaderboard = async (cookie: string) => {
   const response = await fetch(url, { method: 'POST', headers, body });
   const text = await response.text();
   const json = JSON.parse(text);
-  const data = map(json.data, ({ members, checkins, badges, challenges }) => sanitiseLeaderboardItem(members, checkins, badges, challenges));
+  const data = map(json.data, ({ members, checkins, badges, challenges }) => ({ name: members, checkins: parseInt(checkins), badges, agons: challenges }));
   return orderBy(data, ['name']);
 };

@@ -34,7 +34,7 @@ export const getAllStats = async (cookie: string, leaderboard: any) => {
   for (let i = 0; i < members.length; i++) {
     console.log(`getting stats for member ${i + 1} of ${members.length}`);
     const { firstName, lastName, memberProfileUrl } = members[i];
-    const { badges, agons } = find(leaderboard, ({ name }) => name === `${lastName}, ${firstName}`) ?? { badges: 0, agons: 0 };
+    const { badges, agons } = find(leaderboard, ({ name }) => name === `${firstName} ${lastName}`) ?? { badges: -1, agons: -1 };
     const username = split(memberProfileUrl, '/')[4];
     const goodDeeds = await getGoodDeedCheckinStats(cookie, username);
     const fitness = await getFitnessCheckinStats(cookie, username);
