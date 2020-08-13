@@ -9,11 +9,9 @@ export const getGoodDeedCheckinStats = async (cookie: string, username: string) 
   let daysComplete = 0;
   for (let i = 0; i < tableRows.length; i++) {
     const cells = tableRows.eq(i).children('td');
-    if (cells.length > 2) {
-      daysEnrolled++;
-      if (cells.eq(1).html() === 'Yes') {
-        daysComplete++;
-      }
+    daysEnrolled++;
+    if (cells.eq(1).html() === 'Yes') {
+      daysComplete++;
     }
   }
 

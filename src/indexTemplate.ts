@@ -64,7 +64,7 @@ export const indexTemplate = `<html>
         <tr>
           <td class="name"><%= data[i].lastName %></td>
           <td class="name"><%= data[i].firstName %></td>
-          <td class="name"><%= data[i].username %></td>
+          <td class="name"><a href="<%= data[i].memberProfileUrl %>">@<%= data[i].username %></a></td>
           <td class="number"><%= data[i].daysEnrolled %></td>
           <td class="number"><%= data[i].badges %></td>
           <td class="number"><%= data[i].agons%></td>
