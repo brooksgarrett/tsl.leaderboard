@@ -17,14 +17,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Remove index.html
-        run: |
-          rm index.html
-          git config --global user.name 'andrewcrobertson'
-          git config --global user.email 'andrewcrobertson@users.noreply.github.com'
-          git commit -am "chore: remove index.html"
-          git push
-
       - name: Setup Node.js 12.x
         uses: actions/setup-node@master
         with:
@@ -38,10 +30,19 @@ jobs:
         env:
           TSL_COOKIE: ${{ secrets.TSL_COOKIE }}
 
-      - name: Commit index.html
+      - name: Remove index.html
         run: |
+          rm index.html
+          git config --global user.name 'andrewcrobertson'
+          git config --global user.email 'andrewcrobertson@users.noreply.github.com'
+          git commit -am "chore: remove index.html"
+          git push
+
+      - name: Copy/Commit index.html
+        run: |
+          mv new.html index.html
           git config --global user.name 'andrewcrobertson'
           git config --global user.email 'andrewcrobertson@users.noreply.github.com'
           git add -A
-          git commit -m "chore: build"
+          git commit -m "chore: update index.html"
           git push

@@ -13,5 +13,5 @@ export const run = async () => {
   const compiled = template(indexTemplate);
   const htmlRaw = compiled({ data });
   const minified = minify(htmlRaw, { minifyCSS: true, collapseWhitespace: true });
-  fs.writeFileSync(path.resolve(__dirname, '..', 'index.html'), minified);
+  fs.writeFileSync(path.resolve(__dirname, '..', 'new.html'), minified);
 };
