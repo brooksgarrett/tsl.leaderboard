@@ -1,5 +1,7 @@
+import first from 'lodash/first';
 import map from 'lodash/map';
 import orderBy from 'lodash/orderBy';
+import split from 'lodash/split';
 import fetch from 'node-fetch';
 
 export const getLeaderboard = async (cookie: string) => {
@@ -11,6 +13,11 @@ export const getLeaderboard = async (cookie: string) => {
   const response = await fetch(url, { method: 'POST', headers, body });
   const text = await response.text();
   const json = JSON.parse(text);
-  const data = map(json.data, ({ members, checkins, badges, challenges }) => ({ name: members, checkins: parseInt(checkins), badges, agons: challenges }));
+  const data = map(json.data, ({ members, checkins, badges, challenges }) => ({
+    name: first(split(members, '<')),
+    checkins: parseInt(checkins),
+    badges,
+    agons: challenges,
+  }));
   return orderBy(data, ['name']);
 };
