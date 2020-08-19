@@ -46,6 +46,21 @@ export const indexTemplate = `<html>
     </style>
   </head>
   <body>
+    <h1>Class Summary - Number Of Cards Passing</h1>
+    <table id="class-table-id">
+      <thead class="heading">
+        <th class="name">Badges&nbsp;</td>
+        <th class="name">Agons&nbsp;</td>
+        <th class="name">Good Deeds&nbsp;</td>
+        <th class="number">Fitness&nbsp;</td>
+      </thead>
+        <tr>
+          <td class="name"><%= data.class.badgesCount %></td>
+          <td class="name"><%= data.class.agonsCount %></td>
+          <td class="number"><%= data.class.deedsCount %></td>
+          <td class="number"><%= data.class.fitnessCount%></td>
+        </tr>
+    </table>
     <h1>Leaderboard</h1>
     <table id="table-id">
       <thead class="heading">
@@ -60,18 +75,18 @@ export const indexTemplate = `<html>
         <th class="number">Fitness Chk-ins&nbsp;</td>
         <th class="number">Fitness %&nbsp;</td>
       </thead>
-      <% for (let i = 0; i < data.length; i++) { %>
+      <% for (let i = 0; i < data.leaderboard.length; i++) { %>
         <tr>
-          <td class="name"><%= data[i].lastName %></td>
-          <td class="name"><%= data[i].firstName %></td>
-          <td class="name"><a href="<%= data[i].memberProfileUrl %>">@<%= data[i].username %></a></td>
-          <td class="number"><%= data[i].daysEnrolled %></td>
-          <td class="number"><%= data[i].badges %></td>
-          <td class="number"><%= data[i].agons%></td>
-          <td class="number"><%= data[i].goodDeedCheckins %></td>
-          <td class="number"><%= data[i].goodDeedPercentage %></td>
-          <td class="number"><%= data[i].fitnessCheckins %></td>
-          <td class="number"><%= data[i].fitnessPercentage %></td>
+          <td class="name"><%= data.leaderboard[i].lastName %></td>
+          <td class="name"><%= data.leaderboard[i].firstName %></td>
+          <td class="name"><a href="<%= data.leaderboard[i].memberProfileUrl %>">@<%= data.leaderboard[i].username %></a></td>
+          <td class="number"><%= data.leaderboard[i].daysEnrolled %></td>
+          <td class="number"><%= data.leaderboard[i].badges %></td>
+          <td class="number"><%= data.leaderboard[i].agons%></td>
+          <td class="number"><%= data.leaderboard[i].goodDeedCheckins %></td>
+          <td class="number"><%= data.leaderboard[i].goodDeedPercentage %></td>
+          <td class="number"><%= data.leaderboard[i].fitnessCheckins %></td>
+          <td class="number"><%= data.leaderboard[i].fitnessPercentage %></td>
         </tr>
       <% } %>
     </table>
