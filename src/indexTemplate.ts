@@ -49,12 +49,14 @@ export const indexTemplate = `<html>
     <h1>Class Summary - Number Of Cards Passing</h1>
     <table id="class-table-id">
       <thead class="heading">
+        <th class="name">Fully Passing&nbsp;</td>
         <th class="name">Badges&nbsp;</td>
         <th class="name">Agons&nbsp;</td>
         <th class="name">Good Deeds&nbsp;</td>
         <th class="number">Fitness&nbsp;</td>
       </thead>
         <tr>
+          <td class="name"><%= data.class.passing %></td>
           <td class="name"><%= data.class.badgesCount %></td>
           <td class="name"><%= data.class.agonsCount %></td>
           <td class="number"><%= data.class.deedsCount %></td>
