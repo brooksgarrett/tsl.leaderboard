@@ -4,7 +4,11 @@
   "description": "The Strenuous Life: Leaderboard for Class 052",
   "version": "0.0.0",
   "scripts": {
-    "build": "ts-node ./src/index"
+    "build": "ts-node ./src/index",
+    "postinstall": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "debug": "nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:5858 --nolazy ./dist/index.js",
+    "start": "node ./dist/index.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
