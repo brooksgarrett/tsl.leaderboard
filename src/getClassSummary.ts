@@ -31,7 +31,7 @@ export const getClassSummary = async (cookie: string, leaderboard: any) => {
   for (const member of leaderboard) {
     if (blacklist.includes(member.username)) continue;
     summaryStats.badgesCount = member.badges > 0 ? summaryStats.badgesCount + 1 : summaryStats.badgesCount;
-    summaryStats.agonsCount = member.agons > 6 ? summaryStats.agonsCount + 1 : summaryStats.agonsCount;
+    summaryStats.agonsCount = member.agons > 11 ? summaryStats.agonsCount + 1 : summaryStats.agonsCount;
     summaryStats.deedsCount = member.goodDeedPercentage >= 75.0 ? summaryStats.deedsCount + 1 : summaryStats.deedsCount;
     summaryStats.fitnessCount = member.fitnessPercentage >= 75.0 ? summaryStats.fitnessCount + 1 : summaryStats.fitnessCount;
     if (member.badges > 0 && member.agons > 6 && member.goodDeedPercentage >= 75.0 && member.fitnessPercentage >= 75.0) summaryStats.passing++;
